@@ -1,0 +1,20 @@
+﻿@page "/"
+
+@using DemoBASMApp.Models
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Spinner
+
+<div class="mt-4">
+    @if(IsLoading) {
+        <SfSpinner Visible="true" Label="Loading..." Type="@SpinnerType.Bootstrap5" Size="80" CssClass="e-spinner-white"></SfSpinner>
+    }
+    else {
+        <SfGrid DataSource="@Employees" AllowSorting="true" AllowPaging="true">
+            <GridPageSettings PageSize="10"></GridPageSettings>
+            @* Using SfDataManager - The API Needs to return Items/Count *@
+            @* <SfDataManager Url="http://localhost:5048/Client" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager> *@
+        </SfGrid>
+    }
+</div>
